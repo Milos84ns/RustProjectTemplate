@@ -12,13 +12,18 @@ members = ["local_test"]
 # license = "Apache-2.0"
 
 [profile.release]
-panic = "abort"
-strip = true
-#Enable 'rustc' compilation profile for smaller files
-opt-level = "s"
+codegen-units = 1 # Compile creates one after another so compiler can optimize better
+debug = false # Disable debug information
+debug-assertions = false # Disable debug assertions
+incremental = false # Disable incremental compilation
 # Enable Link Time Optimization
 # to reduce final binary size with help of the linker
-lto = true
+lto = true # Enables link to optimizations
+opt-level = "s" # Optimize for binary size
+overflow-checks = false # Disable overflow checks
+panic = 'abort' # Strip expesive panic clean-up logic
+rpath = false # Disable rpath
+strip = "symbols" # Automatically strip symbols from the binary
 
 [profile.dev]
 opt-level = 0

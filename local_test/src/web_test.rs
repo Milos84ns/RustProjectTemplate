@@ -1,7 +1,7 @@
 #[allow(unused)] // allow unused imports for tests
 
 #[cfg(test)]
-mod app_tests{
+mod web_tests{
 
   use super::*;
 
