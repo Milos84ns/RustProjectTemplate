@@ -1,0 +1,2 @@
+# RustProjectTemplate
+Rust Project Template
