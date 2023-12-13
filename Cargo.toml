@@ -1,0 +1,34 @@
+[workspace]
+members = ["local_test"]
+
+# [package]
+# name = "Project" # the name of the package
+# description = "Workspace template to make new projects"
+# version = "0.1.0"    # the current version, obeying semver
+# authors = ["Alice <a@example.com>", "Bob <b@example.com>"]
+
+# #exclude = ["local_test/", ".*"]
+# # build = "build.rs"
+# license = "Apache-2.0"
+
+[profile.release]
+panic = "abort"
+strip = true
+#Enable 'rustc' compilation profile for smaller files
+opt-level = "s"
+# Enable Link Time Optimization
+# to reduce final binary size with help of the linker
+lto = true
+
+[profile.dev]
+opt-level = 0
+# debug = true
+split-debuginfo = '...'  # Platform-specific.
+strip = false
+debug-assertions = true
+overflow-checks = true
+lto = false
+panic = 'abort'
+incremental = true
+codegen-units = 256
+rpath = false
